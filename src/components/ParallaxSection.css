@@ -1,0 +1,18 @@
+.parallax {
+  background-image: url("path-to-background-image.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(0.8);
+}
+
+.parallax h1 {
+  font-size: 50px;
+  color: #fff;
+  margin: 0;
+}
