@@ -42,6 +42,7 @@
   justify-content: center;
   align-items: center;
   filter: brightness(0.8);
+  text-align: center;
 }
 
 .parallax::after {
@@ -54,23 +55,38 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
-.parallax h1 {
+.text-container {
   position: relative;
+}
+
+.text-container h1,
+.text-container h2 {
   font-family: 'Playwrite MX', sans-serif; /* Apply Google Font */
-  font-size: 50px;
   color: #fff;
   margin: 0;
-  animation: fadeInUp 2s ease-out;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.parallax h1:hover {
-  transform: scale(1.1);
-  color: #ffcc00; /* Change to any color you like */
+.text-container h1 {
+  font-size: 4vw; /* Make responsive */
+  animation: fadeInUp 2s ease-out;
 }
 
-.heart-container {
-  position: relative;
+.text-container h2 {
+  font-size: 4vw; /* Make responsive */
+  margin-top: 10px;
+  animation: fadeInUp 3s ease-out; /* Add animation */
+}
+
+.text-container:hover .heart {
+  opacity: 1;
+  animation: heartBeat 1s infinite;
+}
+
+.text-container:hover h1,
+.text-container:hover h2 {
+  transform: scale(1.1);
+  color: #ffcc00; /* Change to any color you like */
 }
 
 .heart {
@@ -103,44 +119,78 @@
   left: 10px;
 }
 
-.parallax h1:hover .heart {
-  opacity: 1;
-  animation: heartBeat 1s infinite;
-}
-
-/* Positioning and rotating hearts */
+/* Positioning hearts without rotation */
 .heart1 {
-  top: -40px;
-  left: -40px;
-  transform: rotate(45deg);
+  top: -60px;
+  left: -60px;
 }
 
 .heart2 {
-  bottom: -40px;
-  left: -40px;
-  transform: rotate(135deg);
+  bottom: -60px;
+  left: -60px;
 }
 
 .heart3 {
-  top: -40px;
-  right: -40px;
-  transform: rotate(-45deg);
+  top: -60px;
+  right: -60px;
 }
 
 .heart4 {
-  bottom: -40px;
-  right: -40px;
-  transform: rotate(-135deg);
+  bottom: -60px;
+  right: -60px;
 }
 
 .heart5 {
-  top: -40px;
+  top: -60px;
   left: 50%;
-  transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%);
 }
 
 .heart6 {
-  bottom: -40px;
+  bottom: -60px;
   left: 50%;
-  transform: translateX(-50%) rotate(135deg);
+  transform: translateX(-50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heart {
+    width: 15px;
+    height: 15px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 15px;
+    height: 15px;
+  }
+
+  .text-container h1 {
+    font-size: 8vw;
+  }
+
+  .text-container h2 {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart {
+    width: 10px;
+    height: 10px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 10px;
+    height: 10px;
+  }
+
+  .text-container h1 {
+    font-size: 10vw;
+  }
+
+  .text-container h2 {
+    font-size: 7vw;
+  }
 }
