@@ -1,18 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
 .words {
   text-align: center;
-  padding: 50px 0;
+  padding: 50px 20px;
   background: #ffc0cb;
-  opacity: 0;
-  transition: opacity 1.5s ease, transform 1.5s ease;
-  transform: translateY(20px);
-}
-
-.words.show {
-  opacity: 1;
-  transform: translateY(0);
+  font-family: 'Playwrite DE Grund', sans-serif;
+  min-height: 100vh; /* Ensure each paragraph section takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .words p {
-  font-size: 20px;
-  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: 300; /* Adjust the font weight as needed */
+}
+
+.words p.show {
+  opacity: 1;
+  transform: translateY(0);
 }
