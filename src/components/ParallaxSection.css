@@ -1,4 +1,3 @@
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&display=swap');
 
 @keyframes fadeInUp {
@@ -32,7 +31,7 @@
 
 .parallax {
   position: relative;
-  background-image: url("/src/Assets/pexels-mdsnmdsnmdsn-1831234.jpg");
+  background-image: url("/src/Assets/wallpaper1.jpg");
   height: 100vh;
   background-attachment: fixed;
   background-position: center;
@@ -64,7 +63,7 @@
   font-family: 'Playwrite MX', sans-serif; /* Apply Google Font */
   color: #fff;
   margin: 0;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .text-container h1 {
@@ -87,6 +86,7 @@
 .text-container:hover h2 {
   transform: scale(1.1);
   color: #ffcc00; /* Change to any color you like */
+  text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 30px rgba(255, 255, 0, 0.8);
 }
 
 .heart {
@@ -95,7 +95,7 @@
   height: 20px;
   background-color: red;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
   transform-origin: center center;
 }
 
@@ -150,6 +150,10 @@
   bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.text-container:hover .heart {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 30px rgba(255, 255, 0, 0.8);
 }
 
 /* Responsive adjustments */

@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("/src/Assets/wallpaper3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.9);
+}
 
 .words {
   text-align: center;
   padding: 50px 20px;
-  background: #ffc0cb;
-  font-family: 'Playwrite DE Grund', sans-serif;
-  min-height: 100vh; /* Ensure each paragraph section takes at least the full viewport height */
+  font-family: 'Caveat', sans-serif;
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,11 +25,13 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
-  font-size: 24px; /* Adjust the font size as needed */
-  font-weight: 300; /* Adjust the font weight as needed */
+  font-size: 28px;  /* Reduced font size */
+  font-weight: 600; /* Reduced font weight */
 }
 
 .words p.show {
   opacity: 1;
   transform: translateY(0);
+  font-size: 30px;  /* Reduced font size when shown */
+  font-weight: 600; /* Ensure the font weight remains bold */
 }
