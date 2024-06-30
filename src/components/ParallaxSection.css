@@ -42,16 +42,7 @@
   align-items: center;
   filter: brightness(0.8);
   text-align: center;
-}
-
-.parallax::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px; /* Adjust the height as needed */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  overflow: hidden;
 }
 
 .text-container {
@@ -60,21 +51,21 @@
 
 .text-container h1,
 .text-container h2 {
-  font-family: 'Playwrite MX', sans-serif; /* Apply Google Font */
+  font-family: 'Playwrite MX', sans-serif;
   color: #fff;
   margin: 0;
   transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .text-container h1 {
-  font-size: 4vw; /* Make responsive */
+  font-size: 6vw;
   animation: fadeInUp 2s ease-out;
 }
 
 .text-container h2 {
-  font-size: 4vw; /* Make responsive */
+  font-size: 4vw;
   margin-top: 10px;
-  animation: fadeInUp 3s ease-out; /* Add animation */
+  animation: fadeInUp 3s ease-out;
 }
 
 .text-container:hover .heart {
@@ -84,9 +75,9 @@
 
 .text-container:hover h1,
 .text-container:hover h2 {
-  transform: scale(1.1);
-  color: #ffcc00; /* Change to any color you like */
-  text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 30px rgba(255, 255, 0, 0.8);
+  transform: scale(1.2);
+  color: #ffcc00;
+  text-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.8);
 }
 
 .heart {
@@ -119,7 +110,6 @@
   left: 10px;
 }
 
-/* Positioning hearts without rotation */
 .heart1 {
   top: -60px;
   left: -60px;
@@ -153,10 +143,21 @@
 }
 
 .text-container:hover .heart {
-  box-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 30px rgba(255, 255, 0, 0.8);
+  box-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.8);
 }
 
-/* Responsive adjustments */
+.cursor-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 60%);
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+  mix-blend-mode: screen;
+}
+
 @media (max-width: 768px) {
   .heart {
     width: 15px;
