@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./SliderSection.css";
 
-const images = [
-  "path-to-image1.jpg",
-  "path-to-image2.jpg",
-  "path-to-image3.jpg",
-];
+const images = url(
+  "/src/Assets/wallpaper1.jpg",
+  "/src/Assets/wallpaper2.jpg",
+  "/src/Assets/wallpaper3.jpg",
+);
 
 const SliderSection = () => {
   const [index, setIndex] = useState(0);
