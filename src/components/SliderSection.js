@@ -25,35 +25,37 @@ import foto23 from "../Assets/cantik sekaleee.jpeg";
 import foto24 from "../Assets/bagus pohonnya.jpeg";
 import foto25 from "../Assets/asekkk.webp";
 import foto26 from "../Assets/artis cilik ya kakk.jpeg";
+import foto27 from "../Assets/ras apa ini kucingny, lucu amatt.jpeg";
 import "./SliderSection.css";
 
 const images = [
-  { src: foto1, description: "Deskripsi gambar 1" },
-  { src: foto2, description: "Deskripsi gambar 2" },
-  { src: foto3, description: "Deskripsi gambar 3" },
-  { src: foto4, description: "Deskripsi gambar 3" },
-  { src: foto5, description: "Deskripsi gambar 3" },
-  { src: foto6, description: "Deskripsi gambar 3" },
-  { src: foto7, description: "Deskripsi gambar 1" },
-  { src: foto8, description: "Deskripsi gambar 2" },
-  { src: foto9, description: "Deskripsi gambar 3" },
-  { src: foto10, description: "Deskripsi gambar 3" },
-  { src: foto11, description: "Deskripsi gambar 3" },
-  { src: foto12, description: "Deskripsi gambar 3" },
-  { src: foto13, description: "Deskripsi gambar 1" },
-  { src: foto14, description: "Deskripsi gambar 2" },
-  { src: foto15, description: "Deskripsi gambar 3" },
-  { src: foto16, description: "Deskripsi gambar 3" },
-  { src: foto17, description: "Deskripsi gambar 3" },
-  { src: foto18, description: "Deskripsi gambar 3" },
-  { src: foto19, description: "Deskripsi gambar 1" },
-  { src: foto20, description: "Deskripsi gambar 2" },
-  { src: foto21, description: "Deskripsi gambar 3" },
-  { src: foto22, description: "Deskripsi gambar 3" },
-  { src: foto23, description: "Deskripsi gambar 3" },
-  { src: foto24, description: "Deskripsi gambar 3" },
-  { src: foto25, description: "Deskripsi gambar 1" },
-  { src: foto26, description: "Deskripsi gambar 2" },
+  { src: foto1, description: "oo ini cheesecakeny ya" },
+  { src: foto2, description: "pikachu dr mana iniiii" },
+  { src: foto3, description: "pose andalan neh" },
+  { src: foto4, description: "sapa yg bikin blushing nihhh" },
+  { src: foto5, description: "tjieee malu-malu nii" },
+  { src: foto6, description: "wisuda ya kak" },
+  { src: foto7, description: "yg dibelakang sapa tuh" },
+  { src: foto8, description: "ngetawain apa si kakk" },
+  { src: foto9, description: "model ya kak" },
+  { src: foto10, description: "proarmy reg2 mo lewattt" },
+  { src: foto11, description: "mikirin apa si sampe senyum gitu" },
+  { src: foto12, description: "met ultahhhh" },
+  { src: foto13, description: "masi bocilll" },
+  { src: foto14, description: "makan kok mingkem siii" },
+  { src: foto15, description: "lulus niiii" },
+  { src: foto16, description: "lucunyaaaaa" },
+  { src: foto17, description: "kacamata asliny maneee" },
+  { src: foto18, description: "enak banget ya" },
+  { src: foto19, description: "disney princess yg mana lagi ini" },
+  { src: foto20, description: "cuteeeeee" },
+  { src: foto21, description: "culik aku kakakkk" },
+  { src: foto22, description: "cantiknyooooo" },
+  { src: foto23, description: "cantik sekaleee" },
+  { src: foto24, description: "bagus pohonnya" },
+  { src: foto25, description: "mana mukanyaaa" },
+  { src: foto26, description: "artis cilik ya kakk" },
+  { src: foto27, description: "beli dimana ya kucing imut gini" },
 ];
 
 const SliderSection = () => {
@@ -74,20 +76,21 @@ const SliderSection = () => {
     setIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const getVisibleImages = () => {
+    if (index + 3 > images.length) {
+      return [...images.slice(index), ...images.slice(0, (index + 3) % images.length)];
+    }
+    return images.slice(index, index + 3);
+  };
+
   return (
     <div className="slider-section">
       <div className="slider">
         <button className="prev" onClick={handlePrev}>❮</button>
-        <div
-          className="slides"
-          style={{ transform: `translateX(${-index * 100}%)` }}
-        >
-          {images.map((image, i) => (
+        <div className="slides">
+          {getVisibleImages().map((image, i) => (
             <div className="slide" key={i}>
-              <img
-                src={image.src}
-                alt={`Slide ${i}`}
-              />
+              <img src={image.src} alt={`Slide ${index + i}`} />
               <div className="description">{image.description}</div>
             </div>
           ))}
