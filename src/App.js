@@ -3,7 +3,6 @@ import "./App.css";
 import ParallaxSection from "./components/ParallaxSection";
 import WordsSection from "./components/WordsSection";
 import SliderSection from "./components/SliderSection";
-import ButtonSection from "./components/ButtonSection";
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <ParallaxSection />
       <WordsSection />
       <SliderSection />
-      <ButtonSection />
     </div>
   );
 }
