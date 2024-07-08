@@ -6,25 +6,31 @@ const playlistId = 'PL46GhFqJIVbYE6k1rf-ajz1zRj7ab9DFX';
 const maxResults = 50;
 
 const PlaylistSection = () => {
+  const [allItems, setAllItems] = useState([]);
   const [items, setItems] = useState([]);
-  const [prevPageToken, setPrevPageToken] = useState('');
-  const [nextPageToken, setNextPageToken] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    fetchPlaylistItems();
-  }, [currentPage]);
+    fetchAllPlaylistItems();
+  }, []);
 
-  const fetchPlaylistItems = async (pageToken = '') => {
-    const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`
-    );
-    const data = await response.json();
-    setItems(data.items);
-    setPrevPageToken(data.prevPageToken || '');
-    setNextPageToken(data.nextPageToken || '');
+  const fetchAllPlaylistItems = async () => {
+    let allItems = [];
+    let nextPageToken = '';
+
+    do {
+      const response = await fetch(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}&pageToken=${nextPageToken}`
+      );
+      const data = await response.json();
+      allItems = [...allItems, ...data.items];
+      nextPageToken = data.nextPageToken || '';
+    } while (nextPageToken);
+
+    setAllItems(allItems);
+    setItems(allItems.slice(0, maxResults));
   };
 
   const displayResults = (itemsToDisplay) => {
@@ -34,13 +40,6 @@ const PlaylistSection = () => {
         <img
           src={item.snippet.thumbnails.medium.url}
           alt={item.snippet.title}
-          style={{
-            width: '200px',
-            height: 'auto',
-            cursor: 'pointer',
-            borderRadius: '4px',
-            transition: 'transform 0.3s ease'
-          }}
           onClick={() => playVideo(item.snippet.resourceId.videoId)}
         />
       </div>
@@ -52,33 +51,52 @@ const PlaylistSection = () => {
   };
 
   const handleSearch = (e) => {
-    setSearchQuery(e.target.value.toLowerCase());
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    if (query === '') {
+      setItems(allItems.slice(0, maxResults));
+      setCurrentPage(0);
+    } else {
+      const filteredItems = allItems.filter((item) =>
+        item.snippet.title.toLowerCase().includes(query)
+      );
+      setItems(filteredItems);
+    }
   };
 
-  const filteredItems = items.filter((item) =>
-    item.snippet.title.toLowerCase().includes(searchQuery)
-  );
+  const handleNextPage = () => {
+    const startIndex = (currentPage + 1) * maxResults;
+    const nextItems = allItems.slice(startIndex, startIndex + maxResults);
+    if (nextItems.length > 0) {
+      setItems(nextItems);
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    const startIndex = (currentPage - 1) * maxResults;
+    const prevItems = allItems.slice(startIndex, startIndex + maxResults);
+    if (startIndex >= 0) {
+      setItems(prevItems);
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f0f0f0', margin: 0, padding: '20px' }}>
-      <div id="search-container" style={{ margin: '20px 0' }}>
+    <div id="playlist-section">
+      <h2>Our Playlist</h2>
+      <div id="search-container">
         <input
           type="text"
           id="search-input"
           placeholder="Search..."
           value={searchQuery}
           onChange={handleSearch}
-          style={{
-            padding: '10px',
-            width: '300px',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            transition: 'border-color 0.3s ease'
-          }}
         />
       </div>
       {selectedVideo && (
-        <div id="video-player" style={{ margin: '20px 0', display: 'block' }}>
+        <div id="video-player">
           <iframe
             id="player"
             width="560"
@@ -90,45 +108,21 @@ const PlaylistSection = () => {
           ></iframe>
         </div>
       )}
-      <div id="results" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {displayResults(filteredItems)}
+      <div id="results">
+        {displayResults(items)}
       </div>
-      <div id="pagination" style={{ margin: '20px 0', display: 'flex', justifyContent: 'space-between', width: '300px' }}>
+      <div id="pagination">
         <button
           id="prev-button"
-          style={{
-            padding: '10px 20px',
-            backgroundColor: 'dodgerblue',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease, transform 0.2s ease'
-          }}
-          onClick={() => {
-            setCurrentPage(currentPage - 1);
-            fetchPlaylistItems(prevPageToken);
-          }}
-          disabled={!prevPageToken}
+          onClick={handlePrevPage}
+          disabled={currentPage === 0}
         >
           Previous
         </button>
         <button
           id="next-button"
-          style={{
-            padding: '10px 20px',
-            backgroundColor: 'dodgerblue',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease, transform 0.2s ease'
-          }}
-          onClick={() => {
-            setCurrentPage(currentPage + 1);
-            fetchPlaylistItems(nextPageToken);
-          }}
-          disabled={!nextPageToken}
+          onClick={handleNextPage}
+          disabled={(currentPage + 1) * maxResults >= allItems.length}
         >
           Next
         </button>
