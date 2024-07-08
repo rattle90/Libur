@@ -26,6 +26,12 @@ import foto24 from "../Assets/bagus pohonnya.jpeg";
 import foto25 from "../Assets/asekkk.webp";
 import foto26 from "../Assets/artis cilik ya kakk.jpeg";
 import foto27 from "../Assets/ras apa ini kucingny, lucu amatt.jpeg";
+import foto28 from "../Assets/kawaiiiii.jpg";
+import foto29 from "../Assets/tim hoodie putihhhh.jpg";
+import foto30 from "../Assets/hai cantikkkk.jpg";
+import foto31 from "../Assets/malu-malu nii.jpg";
+import foto32 from "../Assets/posisiny gimana ini buns.jpg";
+import foto33 from "../Assets/zzzzzzzzzzzz.jpg";
 import "./SliderSection.css";
 
 const images = [
@@ -56,6 +62,12 @@ const images = [
   { src: foto25, description: "mana mukanyaaa" },
   { src: foto26, description: "artis cilik ya kakk" },
   { src: foto27, description: "beli dimana ya kucing imut gini" },
+  { src: foto28, description: "kawaiiiii" },
+  { src: foto29, description: "tim hoodie putihhhh" },
+  { src: foto30, description: "hai cantikkkk" },
+  { src: foto31, description: "malu-malu nii" },
+  { src: foto32, description: "aga sengklek ya liatnya" },
+  { src: foto33, description: "zzzzzzzzzzzz" },
 ];
 
 const SliderSection = () => {
