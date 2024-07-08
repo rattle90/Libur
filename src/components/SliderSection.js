@@ -97,6 +97,7 @@ const SliderSection = () => {
 
   return (
     <div className="slider-section">
+      <h2 className="slider-title">About Her</h2>
       <div className="slider">
         <button className="prev" onClick={handlePrev}>❮</button>
         <div className="slides">

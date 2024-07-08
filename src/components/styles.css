@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -23,7 +25,8 @@ body {
   
   h2 {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 36px;
+    font-family: "Margarine", sans-serif;
   }
   
   #search-container {
@@ -56,6 +59,10 @@ body {
     text-align: center;
     transition: transform 0.3s ease;
   }
+
+  .video h3 {
+    font-family: "Margarine", sans-serif;
+  }
   
   .video img {
     width: 200px;
@@ -82,18 +89,21 @@ body {
   
   #prev-button,
   #next-button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: rgb(255, 255, 255);
-    color: white;
+    color: rgb(255, 238, 0);
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 0 10px;
+    font-family: "Margarine", sans-serif;
+    font-size: 16px;
   }
   
   #prev-button:hover,
   #next-button:hover {
+    color: white;
     background-color: #fff200;
     box-shadow: 0 0 10px rgb(255, 247, 0); /* Menambahkan efek shadow saat dihover */
   }
