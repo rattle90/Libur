@@ -32,6 +32,7 @@ import foto30 from "../Assets/hai cantikkkk.jpg";
 import foto31 from "../Assets/malu-malu nii.jpg";
 import foto32 from "../Assets/posisiny gimana ini buns.jpg";
 import foto33 from "../Assets/zzzzzzzzzzzz.jpg";
+import foto34 from "../Assets/rambut baru niiii.jpg";
 import "./SliderSection.css";
 
 const images = [
@@ -68,6 +69,7 @@ const images = [
   { src: foto31, description: "malu-malu nii" },
   { src: foto32, description: "aga sengklek ya liatnya" },
   { src: foto33, description: "zzzzzzzzzzzz" },
+  { src: foto34, description: "rambut baru niiii" },
 ];
 
 const SliderSection = () => {

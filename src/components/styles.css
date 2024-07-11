@@ -27,6 +27,7 @@ body {
     margin-bottom: 20px;
     font-size: 36px;
     font-family: "Margarine", sans-serif;
+    color: #ffcc00;
   }
   
   #search-container {
@@ -34,18 +35,22 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    color: white;
+    border-color: white;
   }
   
   #search-input {
+    border-color: white;
     padding: 10px;
     width: 300px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffcc00;
     border-radius: 4px;
     transition: border-color 0.3s ease;
+    background: #ffcc00;
   }
   
   #search-input:focus {
-    border-color: dodgerblue;
+    border-color: rgb(246, 246, 246);
   }
   
   #results {
@@ -62,6 +67,7 @@ body {
 
   .video h3 {
     font-family: "Margarine", sans-serif;
+    color: #ffcc00;
   }
   
   .video img {
