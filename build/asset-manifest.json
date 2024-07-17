@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.32635c5c.css",
-    "main.js": "/static/js/main.f46f0c2d.js",
+    "main.js": "/static/js/main.361c54df.js",
     "static/media/wisuda atau apa ini.jpg": "/static/media/wisuda atau apa ini.71ec3b7c0e43d795e7d4.jpg",
     "static/media/bagus pohonnya.jpeg": "/static/media/bagus pohonnya.2a998eeea7e2ebb4d8f4.jpeg",
     "static/media/masi bocilll.jpeg": "/static/media/masi bocilll.ba67adec20fd1378bd3f.jpeg",
@@ -39,10 +39,10 @@
     "static/media/asekkk.webp": "/static/media/asekkk.971cf2bc62f376ce313e.webp",
     "index.html": "/index.html",
     "main.32635c5c.css.map": "/static/css/main.32635c5c.css.map",
-    "main.f46f0c2d.js.map": "/static/js/main.f46f0c2d.js.map"
+    "main.361c54df.js.map": "/static/js/main.361c54df.js.map"
   },
   "entrypoints": [
     "static/css/main.32635c5c.css",
-    "static/js/main.f46f0c2d.js"
+    "static/js/main.361c54df.js"
   ]
 }
