@@ -1,9 +1,9 @@
 {
-  "name": "react-app",
+  "name": "react",
   "version": "1.0.0",
-  "description": "A React project",
+  "description": "",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "App.js",
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
