@@ -16,10 +16,14 @@
     "typescript": "4.4.4"
   },
   "scripts": {
-    "start": "chmod +x node_modules/.bin/react-scripts && react-scripts start",
-    "build": "chmod +x node_modules/.bin/react-scripts && react-scripts build",
-    "test": "chmod +x node_modules/.bin/react-scripts && react-scripts test --env=jsdom",
-    "eject": "chmod +x node_modules/.bin/react-scripts && react-scripts eject"
+    "prestart": "chmod +x node_modules/.bin/react-scripts",
+    "start": "react-scripts start",
+    "prebuild": "chmod +x node_modules/.bin/react-scripts",
+    "build": "react-scripts build",
+    "pretest": "chmod +x node_modules/.bin/react-scripts",
+    "test": "react-scripts test --env=jsdom",
+    "preeject": "chmod +x node_modules/.bin/react-scripts",
+    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",
